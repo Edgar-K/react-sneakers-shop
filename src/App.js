@@ -6,7 +6,7 @@ function App() {
           <img width={40} height={40} src="/img/logo.png" alt="logo" />
           <div className="headerInfo">
             <h3 className="text-uppercase">React Sneakers</h3>
-            <p>The best Shop for Sneakers</p>
+            <p className="opacity-5">The best Shop for Sneakers</p>
           </div>
         </div>
         <ul className="d-flex">
@@ -20,18 +20,62 @@ function App() {
         </ul>
       </header>
       <div className="content p-40">
-        <h1>All Sneakers</h1>
-        <div className="card">
-          <img src="/img/sneakers/1-sneaker.jpeg" alt="Sneakers" width={133} height={112} />
-          <h5>Fila Jual Sepatu</h5>
-          <div className="d-flex justify-between align-center">
-            <div className="d-flex flex-column ">
-              <span>Price</span>
-              <b>87 Eur</b>
+        <h1 className="mb-40">All Sneakers</h1>
+        <div className="d-flex">
+
+          <div className="card">
+            <img src="/img/sneakers/1-sneaker.jpeg" alt="Sneakers" width={133} height={112} />
+            <h5>Fila Jual Sepatu</h5>
+            <div className="d-flex justify-between align-center">
+              <div className="d-flex flex-column ">
+                <span>Price</span>
+                <b>€ 87,00</b>
+              </div>
+              <button className="button">
+                <img src="/img/plus.svg" alt="plus" width={20} height={20} />
+              </button>
             </div>
-            <button className="button">
-              <img src="/img/plus.svg" alt="plus" width={20} height={20} />
-            </button>
+          </div>
+
+          <div className="card">
+            <img src="/img/sneakers/2-sneaker.jpg" alt="Sneakers" width={133} height={112} />
+            <h5>Nike Running</h5>
+            <div className="d-flex justify-between align-center">
+              <div className="d-flex flex-column ">
+                <span>Price</span>
+                <b>€ 123,00</b>
+              </div>
+              <button className="button">
+                <img src="/img/plus.svg" alt="plus" width={20} height={20} />
+              </button>
+            </div>
+          </div>
+
+          <div className="card">
+            <img src="/img/sneakers/3-sneaker.jpg" alt="Sneakers" width={133} height={112} />
+            <h5>Nike 90's</h5>
+            <div className="d-flex justify-between align-center">
+              <div className="d-flex flex-column ">
+                <span>Price</span>
+                <b>€ 95,00</b>
+              </div>
+              <button className="button">
+                <img src="/img/plus.svg" alt="plus" width={20} height={20} />
+              </button>
+            </div>
+          </div>
+          <div className="card">
+            <img src="/img/sneakers/4-sneaker.jpg" alt="Sneakers" width={133} height={112} />
+            <h5>Nike Sport</h5>
+            <div className="d-flex justify-between align-center">
+              <div className="d-flex flex-column ">
+                <span>Price</span>
+                <b>€ 163,00</b>
+              </div>
+              <button className="button">
+                <img src="/img/plus.svg" alt="plus" width={20} height={20} />
+              </button>
+            </div>
           </div>
         </div>
       </div>
