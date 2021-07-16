@@ -1,6 +1,20 @@
 function App() {
   return (
     <div className="wrapper clear" >
+
+      <div className="overlay">
+        <div className="drawer">
+          <h2>Cart</h2>
+          <div className="cartItem d-flex align-center">
+            <img className="mr-20" src="/img/sneakers/1-sneaker.jpeg" alt="Sneakers" width={70} height={70} />
+            <div className="mr-20">
+              <p className="mb-5">Nike Running</p>
+              <b>€ 87,00</b>
+            </div>
+            <img className="removeBtn" src="/img/btn-remove.svg" alt="remove" width={15} height={15} />
+          </div>
+        </div>
+      </div>
       <header className="d-flex justify-between p-40 align-center">
         <div className="d-flex align-center">
           <img width={40} height={40} src="/img/logo.png" alt="logo" />
