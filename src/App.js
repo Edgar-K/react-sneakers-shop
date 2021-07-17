@@ -4,15 +4,41 @@ function App() {
 
       <div className="overlay">
         <div className="drawer">
-          <h2>Cart</h2>
-          <div className="cartItem d-flex align-center">
-            <img className="mr-20" src="/img/sneakers/1-sneaker.jpeg" alt="Sneakers" width={70} height={70} />
-            <div className="mr-20">
-              <p className="mb-5">Nike Running</p>
-              <b>€ 87,00</b>
+          <h2 className="mb-30">Cart</h2>
+
+          <div>
+            <div className="cartItem d-flex align-center  justify-between mb-20">
+              <div style={{ backgroundImage: 'url("/img/sneakers/1-sneaker.jpeg")' }} className="cartItemImg" > </div>
+              <div className="mr-20">
+                <p className="mb-5">Nike Running</p>
+                <b>€ 87,00</b>
+              </div>
+              <img className="removeBtn" src="/img/btn-remove.svg" alt="remove" width={15} height={15} />
             </div>
-            <img className="removeBtn" src="/img/btn-remove.svg" alt="remove" width={15} height={15} />
+
+            <div className="cartItem d-flex align-center  justify-between mb-20">
+              <div style={{ backgroundImage: 'url("/img/sneakers/1-sneaker.jpeg")' }} className="cartItemImg" > </div>
+              <div className="mr-20">
+                <p className="mb-5">Nike Running</p>
+                <b>€ 87,00</b>
+              </div>
+              <img className="removeBtn" src="/img/btn-remove.svg" alt="remove" width={15} height={15} />
+            </div>
+            <ul className="cartTotalBlock">
+              <li className="d-flex">
+                <span>Total:</span>
+                <div></div>
+                <b>150 EUR</b>
+              </li>
+              <li className="d-flex">
+                <span>Tax 19%:</span>
+                <div></div>
+                <b>29 EUR</b>
+              </li>
+            </ul>
+
           </div>
+
         </div>
       </div>
       <header className="d-flex justify-between p-40 align-center">
