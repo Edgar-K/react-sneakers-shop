@@ -4,9 +4,10 @@ function App() {
 
       <div className="overlay">
         <div className="drawer">
+
           <h2 className="mb-30">Cart</h2>
 
-          <div>
+          <div className="items">
             <div className="cartItem d-flex align-center  justify-between mb-20">
               <div style={{ backgroundImage: 'url("/img/sneakers/1-sneaker.jpeg")' }} className="cartItemImg" > </div>
               <div className="mr-20">
@@ -24,7 +25,9 @@ function App() {
               </div>
               <img className="removeBtn" src="/img/btn-remove.svg" alt="remove" width={15} height={15} />
             </div>
-            <ul className="cartTotalBlock">
+          </div>
+          <div className="cartTotalBlock">
+            <ul >
               <li className="d-flex">
                 <span>Total:</span>
                 <div></div>
@@ -36,8 +39,10 @@ function App() {
                 <b>29 EUR</b>
               </li>
             </ul>
-
+            <button>Order</button>
           </div>
+
+
 
         </div>
       </div>
