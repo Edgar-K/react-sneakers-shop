@@ -2,9 +2,26 @@ import Cart from './components/Card'
 import Header from './components/Header'
 import Drawer from './components/Drawer'
 
-const arr =[
+const arr = [
   {
-    
+    title: 'Nike Sportswear',
+    price: 59.99,
+    imageUrl: '/img/sneakers/1.jpg'
+  },
+  {
+    title: 'FLEX EXPERIENCE RUN 10',
+    price: 55.99,
+    imageUrl: '/img/sneakers/2.jpg'
+  },
+  {
+    title: 'Air Max Bella Tr 3',
+    price: 89.99,
+    imageUrl: '/img/sneakers/3.jpg'
+  },
+  {
+    title: 'KD TREY 5 IX',
+    price: 99,
+    imageUrl: '/img/sneakers/4.jpg'
   }
 ]
 
@@ -22,7 +39,10 @@ function App() {
           </div>
         </div>
         <div className="d-flex">
-          <Cart />
+          {arr.map((obj) => (
+            <Cart title={obj.title} price={obj.price} imageUrl={obj.imageUrl} />
+          ))}
+
         </div>
       </div>
     </div>
