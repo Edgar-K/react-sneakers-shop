@@ -1,4 +1,5 @@
 import Cart from './components/Card'
+import Header from './components/Header'
 
 function App() {
   return (
@@ -6,7 +7,7 @@ function App() {
 
       <div style={{ display: "none" }} className="overlay">
         <div className="drawer">
-
+         
           <h2 className="mb-30 d-flex justify-between  ">Cart
             <img className="removeBtn cu-p" src="/img/btn-remove.svg" alt="remove" width={25} height={25} />
           </h2>
@@ -52,24 +53,7 @@ function App() {
 
         </div>
       </div>
-      <header className="d-flex justify-between p-40 align-center">
-        <div className="d-flex align-center">
-          <img width={40} height={40} src="/img/logo.png" alt="logo" />
-          <div className="headerInfo">
-            <h3 className="text-uppercase">React Sneakers</h3>
-            <p className="opacity-5">The best Shop for Sneakers</p>
-          </div>
-        </div>
-        <ul className="d-flex">
-          <li className="mr-30">
-            <img width={18} height={18} src="/img/user.svg" alt="user-icon" />
-            <span>56 EUR</span>
-          </li>
-          <li>
-            <img width={18} height={18} src="/img/cart.svg" alt="cart-icon" />
-          </li>
-        </ul>
-      </header>
+      <Header />
       <div className="content p-40">
         <div className="d-flex align-center mb-40 justify-between">
           <h1 className="">All Sneakers</h1>
@@ -81,9 +65,9 @@ function App() {
 
         <div className="d-flex">
 
-        <Cart />
+          <Cart />
 
-          <div className="card">
+          {/* <div className="card">
             <div className="favorite" >
               <img src="/img/heart-unliked.svg" alt="unliked" width={15} height={15} />
             </div>
@@ -132,6 +116,7 @@ function App() {
               </button>
             </div>
           </div>
+           */}
         </div>
       </div>
     </div>
