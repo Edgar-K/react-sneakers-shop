@@ -1,11 +1,15 @@
+import Cart from './components/Card'
+
 function App() {
   return (
     <div className="wrapper clear" >
 
-      <div className="overlay">
+      <div style={{ display: "none" }} className="overlay">
         <div className="drawer">
 
-          <h2 className="mb-30">Cart</h2>
+          <h2 className="mb-30 d-flex justify-between  ">Cart
+            <img className="removeBtn cu-p" src="/img/btn-remove.svg" alt="remove" width={25} height={25} />
+          </h2>
 
           <div className="items">
             <div className="cartItem d-flex align-center  justify-between mb-20">
@@ -14,7 +18,7 @@ function App() {
                 <p className="mb-5">Nike Running</p>
                 <b>€ 87,00</b>
               </div>
-              <img className="removeBtn" src="/img/btn-remove.svg" alt="remove" width={15} height={15} />
+              <img className="removeBtn" src="/img/btn-remove.svg" alt="remove" width={25} height={25} />
             </div>
 
             <div className="cartItem d-flex align-center  justify-between mb-20">
@@ -23,7 +27,7 @@ function App() {
                 <p className="mb-5">Nike Running</p>
                 <b>€ 87,00</b>
               </div>
-              <img className="removeBtn" src="/img/btn-remove.svg" alt="remove" width={15} height={15} />
+              <img className="removeBtn" src="/img/btn-remove.svg" alt="remove" width={25} height={25} />
             </div>
           </div>
           <div className="cartTotalBlock">
@@ -39,7 +43,9 @@ function App() {
                 <b>29 EUR</b>
               </li>
             </ul>
-            <button>Order</button>
+            <button className="greenButton">Order
+              <img width={20} height={20} src="/img/arrow-right.svg" alt="Arrow" />
+            </button>
           </div>
 
 
@@ -75,23 +81,7 @@ function App() {
 
         <div className="d-flex">
 
-          <div className="card">
-            <div className="favorite" >
-              <img src="/img/heart-unliked.svg" alt="unliked" width={15} height={15} />
-            </div>
-
-            <img src="/img/sneakers/1-sneaker.jpeg" alt="Sneakers" width={133} height={112} />
-            <h5>Fila Jual Sepatu</h5>
-            <div className="d-flex justify-between align-center">
-              <div className="d-flex flex-column ">
-                <span>Price</span>
-                <b>€ 87,00</b>
-              </div>
-              <button className="button">
-                <img src="/img/btn-plus.svg" alt="plus" width={20} height={20} />
-              </button>
-            </div>
-          </div>
+        <Cart />
 
           <div className="card">
             <div className="favorite" >
