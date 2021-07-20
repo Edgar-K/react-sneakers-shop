@@ -38,7 +38,7 @@ function App() {
             <input placeholder="Search..." />
           </div>
         </div>
-        <div className="d-flex">
+        <div className="d-flex justify-between">
           {arr.map((obj) => (
             <Cart title={obj.title} price={obj.price} imageUrl={obj.imageUrl} />
           ))}
