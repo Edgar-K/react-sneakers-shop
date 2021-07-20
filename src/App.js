@@ -40,7 +40,13 @@ function App() {
         </div>
         <div className="d-flex justify-between">
           {arr.map((obj) => (
-            <Cart title={obj.title} price={obj.price} imageUrl={obj.imageUrl} />
+            <Cart
+              title={obj.title}
+              price={obj.price}
+              imageUrl={obj.imageUrl}
+            // onFavorite={() => }
+            // onPlus={() =>}
+            />
           ))}
 
         </div>
