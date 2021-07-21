@@ -5,7 +5,7 @@ function Cart(props) {
     const [isAdded, setIsAdded] = React.useState();
 
     const onClickPlus = () => {
-        setIsAdded(true);
+        setIsAdded(!isAdded);
     }
 
     return (
