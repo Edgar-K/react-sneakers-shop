@@ -12,6 +12,14 @@ function App() {
 
   const [cartOpened, setCartOpened] = React.useState(false);
 
+  React.useEffect(() => {
+    fetch('https://60f9f7837ae59c0017165f92.mockapi.io/items').then((res) => {
+      return res.json();
+    }).then((json) => {
+      setItems(json);
+    });
+  }, []);
+
   return (
     <div className="wrapper clear" >
       {cartOpened && <Drawer onClose={() => setCartOpened(false)} />}
