@@ -20,23 +20,6 @@ function Drawer({ onClose, items = [] }) {
                         </div>
                     ))
                     }
-                    {/* <div className="cartItem d-flex align-center  justify-between mb-20">
-                        <div style={{ backgroundImage: 'url("/img/sneakers/1-sneaker.jpeg")' }} className="cartItemImg" > </div>
-                        <div className="mr-20">
-                            <p className="mb-5">Nike Running</p>
-                            <b>€ 87,00</b>
-                        </div>
-                        <img className="removeBtn" src="/img/btn-remove.svg" alt="remove" width={25} height={25} />
-                    </div>
-
-                    <div className="cartItem d-flex align-center  justify-between mb-20">
-                        <div style={{ backgroundImage: 'url("/img/sneakers/1-sneaker.jpeg")' }} className="cartItemImg" > </div>
-                        <div className="mr-20">
-                            <p className="mb-5">Nike Running</p>
-                            <b>€ 87,00</b>
-                        </div>
-                        <img className="removeBtn" src="/img/btn-remove.svg" alt="remove" width={25} height={25} />
-                    </div> */}
                 </div>
                 <div className="cartTotalBlock">
                     <ul >
