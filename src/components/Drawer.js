@@ -1,14 +1,26 @@
-function Drawer(props) {
+function Drawer({ onClose, items = [] }) {
     return (
         <div className="overlay">
             <div className="drawer">
 
                 <h2 className="mb-30 d-flex justify-between  ">Cart
-                    <img onClick={props.onClose} className="removeBtn cu-p" src="/img/btn-remove.svg" alt="remove" width={25} height={25} />
+                    <img onClick={onClose} className="removeBtn cu-p" src="/img/btn-remove.svg" alt="remove" width={25} height={25} />
                 </h2>
 
                 <div className="items">
-                    <div className="cartItem d-flex align-center  justify-between mb-20">
+
+                    {items.map((obj) => (
+                        <div className="cartItem d-flex align-center  justify-between mb-20">
+                            <div style={{ backgroundImage: `url(${obj.imageUrl})` }} className="cartItemImg" > </div>
+                            <div className="mr-20">
+                                <p className="mb-5">{obj.title}</p>
+                                <b>{obj.price}</b>
+                            </div>
+                            <img className="removeBtn" src="/img/btn-remove.svg" alt="remove" width={25} height={25} />
+                        </div>
+                    ))
+                    }
+                    {/* <div className="cartItem d-flex align-center  justify-between mb-20">
                         <div style={{ backgroundImage: 'url("/img/sneakers/1-sneaker.jpeg")' }} className="cartItemImg" > </div>
                         <div className="mr-20">
                             <p className="mb-5">Nike Running</p>
@@ -24,7 +36,7 @@ function Drawer(props) {
                             <b>€ 87,00</b>
                         </div>
                         <img className="removeBtn" src="/img/btn-remove.svg" alt="remove" width={25} height={25} />
-                    </div>
+                    </div> */}
                 </div>
                 <div className="cartTotalBlock">
                     <ul >
