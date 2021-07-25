@@ -12,6 +12,8 @@ function App() {
 
   const [cartItems, setCartItems] = React.useState([]);
 
+  const [searchValue, setSearchValue] = React.useState('');
+
   const [cartOpened, setCartOpened] = React.useState(false);
 
   React.useEffect(() => {
@@ -23,7 +25,11 @@ function App() {
   }, []);
 
   const onAddToCart = (obj) => {
-    setCartItems([...cartItems, obj]);
+    setCartItems((prev) => ([...prev, obj]));
+  };
+
+  const onChangeSearchInput = (event) => {
+    setSearchValue(event.target.value);
   };
 
   return (
@@ -32,22 +38,25 @@ function App() {
       <Header onClickCart={() => setCartOpened(true)} />
       <div className="content p-40">
         <div className="d-flex align-center mb-40 justify-between">
-          <h1 className="">All Sneakers</h1>
+          <h1 className="">{searchValue ? `Search On :" ${searchValue}"` : "All Sneakers"}</h1>
           <div className="search-block d-flex">
             <img src="/img/search.svg" alt="Search" />
-            <input placeholder="Search..." />
+            {searchValue && <img onClick={() => setSearchValue('')} className="clear cu-p" src="/img/btn-remove.svg" alt="clear" width={18} height={18} />}
+            <input onChange={onChangeSearchInput} value={searchValue} placeholder="Search..." />
           </div>
         </div>
         <div className="d-flex flex-wrap">
-          {items.map((item) => (
-            <Cart
-              title={item.title}
-              price={item.price}
-              imageUrl={item.imageUrl}
-              onFavorite={() => console.log('Favorite')}
-              onPlus={(obj) => onAddToCart(obj)}
-            />
-          ))}
+          {items.filter((item) => item.title.toLowerCase().includes(searchValue.toLowerCase()))
+            .map((item, index) => (
+              <Cart
+                key={index}
+                title={item.title}
+                price={item.price}
+                imageUrl={item.imageUrl}
+                onFavorite={() => console.log('Favorite')}
+                onPlus={(obj) => onAddToCart(obj)}
+              />
+            ))}
 
         </div>
       </div>
