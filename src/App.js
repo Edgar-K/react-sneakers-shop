@@ -35,7 +35,12 @@ function App() {
   // Sending the data to server and saving on Cart
   const onAddToCart = (obj) => {
     axios.post('https://60f9f7837ae59c0017165f92.mockapi.io/cart', obj);
-    setCartItems((prev) => ([...prev, obj]));
+    setCartItems((prev) => [...prev, obj]);
+  };
+
+  const onRemoveItem = (id) => {
+    axios.delete(`https://60f9f7837ae59c0017165f92.mockapi.io/cart/${id}`);
+    setCartItems((prev) => prev.filter((item) => item.id !== id));
   };
 
   const onChangeSearchInput = (event) => {
@@ -44,7 +49,7 @@ function App() {
 
   return (
     <div className="wrapper clear" >
-      {cartOpened && <Drawer items={cartItems} onClose={() => setCartOpened(false)} />}
+      {cartOpened && <Drawer items={cartItems} onClose={() => setCartOpened(false)} onRemove={onRemoveItem} />}
       <Header onClickCart={() => setCartOpened(true)} />
       <div className="content p-40">
         <div className="d-flex align-center mb-40 justify-between">
