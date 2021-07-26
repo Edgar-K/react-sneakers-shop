@@ -10,20 +10,12 @@ import Drawer from './components/Drawer'
 function App() {
 
   const [items, setItems] = React.useState([]);
-
   const [cartItems, setCartItems] = React.useState([]);
-
+  const [favorites, setFavorites] = React.useState([]);
   const [searchValue, setSearchValue] = React.useState('');
-
   const [cartOpened, setCartOpened] = React.useState(false);
 
   React.useEffect(() => {
-    // fetch('https://60f9f7837ae59c0017165f92.mockapi.io/items').then((res) => {
-    //   return res.json();
-    // }).then((json) => {
-    //   setItems(json);
-    // });
-
     axios.get('https://60f9f7837ae59c0017165f92.mockapi.io/items').then((res) => {
       setItems(res.data);
     });
@@ -41,6 +33,11 @@ function App() {
   const onRemoveItem = (id) => {
     axios.delete(`https://60f9f7837ae59c0017165f92.mockapi.io/cart/${id}`);
     setCartItems((prev) => prev.filter((item) => item.id !== id));
+  };
+
+  const onAddToFavorite = (obj) => {
+    axios.post('https://60f9f7837ae59c0017165f92.mockapi.io/favorites', obj);
+    setFavorites((prev) => [...prev, obj]);
   };
 
   const onChangeSearchInput = (event) => {
@@ -68,7 +65,7 @@ function App() {
                 title={item.title}
                 price={item.price}
                 imageUrl={item.imageUrl}
-                onFavorite={() => console.log('Favorite')}
+                onFavorite={(obj) => onAddToFavorite(obj)}
                 onPlus={(obj) => onAddToCart(obj)}
               />
             ))}
