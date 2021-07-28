@@ -8,14 +8,18 @@ function Header(props) {
                     <p className="opacity-5">The best Shop for Sneakers</p>
                 </div>
             </div>
-            <ul className="d-flex cu-p" onClick={props.onClickCart} >
+            <ul className="d-flex cu-p" >
                 <li className="mr-30 cu-p">
                     <img width={18} height={18} src="/img/user.svg" alt="user-icon" />
                     <span>56 EUR</span>
                 </li>
-                <li>
+                <li className="mr-20 cu-p">
+                    <img width={18} height={18} src="/img/unliked.svg" alt="cart-icon" />
+                </li>
+                <li onClick={props.onClickCart}>
                     <img width={18} height={18} src="/img/cart.svg" alt="cart-icon" />
                 </li>
+
             </ul>
         </header>
     );

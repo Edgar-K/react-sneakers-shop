@@ -12,13 +12,14 @@ function Cart({ onFavorite, onPlus, title, imageUrl, price }) {
     };
 
     const onClickFavorite = () => {
-        setIsFavorite(!isFavorite)
+        onFavorite({ title, imageUrl, price });
+        setIsFavorite(!isFavorite);
     };
 
     return (
         <div className={styles.card}>
             <div className={styles.favorite} onClick={onClickFavorite} >
-                <img onClick={onClickPlus} src={isFavorite ? '/img/liked.svg' : '/img/unliked.svg'} alt="unliked" width={15} height={15} />
+                <img src={isFavorite ? '/img/liked.svg' : '/img/unliked.svg'} alt="unliked" width={15} height={15} />
             </div>
 
             <img src={imageUrl} alt="Sneakers" width={170} height={112} />
