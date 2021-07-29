@@ -1,4 +1,5 @@
 import React from 'react'
+import { Route } from 'react-router-dom'
 import axios from 'axios'
 import Cart from './components/Card'
 import Header from './components/Header'
@@ -18,9 +19,11 @@ function App() {
   React.useEffect(() => {
     axios.get('https://60f9f7837ae59c0017165f92.mockapi.io/items').then((res) => {
       setItems(res.data);
+      console.log(res.data);
     });
     axios.get('https://60f9f7837ae59c0017165f92.mockapi.io/cart').then((res) => {
       setCartItems(res.data);
+      console.log(res.data);
     });
   }, []);
 
@@ -31,7 +34,10 @@ function App() {
   };
 
   const onRemoveItem = (id) => {
+    console.log(id);
     axios.delete(`https://60f9f7837ae59c0017165f92.mockapi.io/cart/${id}`);
+
+
     setCartItems((prev) => prev.filter((item) => item.id !== id));
   };
 
@@ -61,7 +67,7 @@ function App() {
           {items.filter((item) => item.title.toLowerCase().includes(searchValue.toLowerCase()))
             .map((item, index) => (
               <Cart
-                key={index}
+                key={item.id}
                 title={item.title}
                 price={item.price}
                 imageUrl={item.imageUrl}
