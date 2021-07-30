@@ -1,9 +1,10 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 import axios from 'axios'
-import Cart from './components/Card'
 import Header from './components/Header'
 import Drawer from './components/Drawer'
+import Home from './pages/Home'
+import Favorites from './pages/Favorites'
 
 
 
@@ -19,11 +20,12 @@ function App() {
   React.useEffect(() => {
     axios.get('https://60f9f7837ae59c0017165f92.mockapi.io/items').then((res) => {
       setItems(res.data);
-      console.log(res.data);
     });
     axios.get('https://60f9f7837ae59c0017165f92.mockapi.io/cart').then((res) => {
       setCartItems(res.data);
-      console.log(res.data);
+    });
+    axios.get('https://60f9f7837ae59c0017165f92.mockapi.io/favorites').then((res) => {
+      setFavorites(res.data);
     });
   }, []);
 
@@ -54,30 +56,26 @@ function App() {
     <div className="wrapper clear" >
       {cartOpened && <Drawer items={cartItems} onClose={() => setCartOpened(false)} onRemove={onRemoveItem} />}
       <Header onClickCart={() => setCartOpened(true)} />
-      <div className="content p-40">
-        <div className="d-flex align-center mb-40 justify-between">
-          <h1 className="">{searchValue ? `Search On :" ${searchValue}"` : "All Sneakers"}</h1>
-          <div className="search-block d-flex">
-            <img src="/img/search.svg" alt="Search" />
-            {searchValue && <img onClick={() => setSearchValue('')} className="clear cu-p" src="/img/btn-remove.svg" alt="clear" width={18} height={18} />}
-            <input onChange={onChangeSearchInput} value={searchValue} placeholder="Search..." />
-          </div>
-        </div>
-        <div className="d-flex flex-wrap">
-          {items.filter((item) => item.title.toLowerCase().includes(searchValue.toLowerCase()))
-            .map((item, index) => (
-              <Cart
-                key={item.id}
-                title={item.title}
-                price={item.price}
-                imageUrl={item.imageUrl}
-                onFavorite={(obj) => onAddToFavorite(obj)}
-                onPlus={(obj) => onAddToCart(obj)}
-              />
-            ))}
-
-        </div>
-      </div>
+      <Route path="/" exact>
+        <Home
+          items={items}
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+          onChangeSearchInput={onChangeSearchInput}
+          onAddToCart={onAddToCart}
+          onAddToFavorite={onAddToFavorite}
+        />
+      </Route>
+      <Route path="/favorites" exact>
+        <Favorites
+          items={favorites}
+        // searchValue={searchValue}
+        // setSearchValue={setSearchValue}
+        // onChangeSearchInput={onChangeSearchInput}
+        // onAddToCart={onAddToCart}
+        // onAddToFavorite={onAddToFavorite}
+        />
+      </Route>
     </div>
   )
 }
