@@ -26,8 +26,6 @@ function App() {
       setCartItems(cartResponse.data);
       setFavorites(favoritesResponse.data);
       setItems(itemsResponse.data);
-
-
     }
     fetchData();
   }, []);
