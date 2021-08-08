@@ -16,11 +16,12 @@ function Home({ items, searchValue, setSearchValue, onChangeSearchInput, onAddTo
           .map((item, index) => (
             <Cart
               key={item.id}
-              title={item.title}
-              price={item.price}
-              imageUrl={item.imageUrl}
+              // title={item.title}
+              // price={item.price}
+              // imageUrl={item.imageUrl}
               onFavorite={(obj) => onAddToFavorite(obj)}
               onPlus={(obj) => onAddToCart(obj)}
+              {...item}
             />
           ))}
 

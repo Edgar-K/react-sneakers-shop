@@ -1,6 +1,6 @@
 import Cart from '../components/Card'
 
-function Favorites({ items, searchValue, setSearchValue, onChangeSearchInput, onAddToCart, onAddToFavorite }) {
+function Favorites({ items, onAddToFavorite }) {
   return (
     <div className="content p-40">
       <div className="d-flex align-center mb-40 justify-between">
@@ -11,9 +11,13 @@ function Favorites({ items, searchValue, setSearchValue, onChangeSearchInput, on
         {items.map((item, index) => (
           <Cart
             key={index}
-            title={item.title}
-            price={item.price}
-            imageUrl={item.imageUrl}
+            // id ={item.id}
+            //title={item.title}
+            // price={item.price}
+            // imageUrl={item.imageUrl}
+            favorited={true}
+            onFavorite={onAddToFavorite}
+            {...item}
           />
         ))}
       </div>
